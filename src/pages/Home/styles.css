@@ -1,0 +1,11 @@
+.MuiInput-underline:before {
+ border-bottom: none !important;
+}
+
+.MuiInput-underline:after {
+ border-bottom: none !important;
+}
+
+.MuiInput-underline:hover:not(.Mui-disabled):before{
+ border-bottom: none;
+}
