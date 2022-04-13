@@ -6,8 +6,8 @@ import Repositorios from './pages/Repositorios'
 const Router: React.FC = () => {
   return (
     <>
-      <Route path="/" component={Home} />
-      <Route path="/repositorios" component={Repositorios} />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/repositorios" component={Repositorios} />
     </>
   );
 }

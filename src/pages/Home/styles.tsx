@@ -4,8 +4,8 @@ export const Title = styled.div`
  font-size: 48px;
  position: fixed;
  font-family: Montserrat,sans-serif;
- top: 20%;
- left: 5%;
+ top: 10%;
+ left: 7%;
  -ms-transform: translate(-50%,-50%);
 `;
 

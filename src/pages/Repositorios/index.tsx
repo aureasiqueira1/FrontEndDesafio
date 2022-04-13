@@ -1,7 +1,13 @@
+
 import React from 'react';
+import { Title } from './styles';
 
 const Repositorios: React.FC = () => {
-  return <h1>Repositorios</h1>;
+  return (
+    <>
+      <Title>Repositorios </Title>
+    </>
+  );
 }
 
 export default Repositorios;

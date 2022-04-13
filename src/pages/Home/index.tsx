@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import SearchIcon from "@material-ui/icons/Search";
 import { TextField, IconButton } from '@material-ui/core';
 import iconGit from '../../assets/images/iconGit.png'
-import './styles.css';
 import UserPicture from '../../components/userPicture';
 import UserDetails from '../../components/userDetails';
 import client from '../../services/client';
 import { Button, Container, Imagem, Left, Lista, Right, Title, NumberContainer } from './styles';
+import './styles.css';
 
 const Home: React.FC = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -21,6 +21,10 @@ const Home: React.FC = () => {
   const [split2, setSplit2] = useState<string>('');
   const [fork, setFork] = useState<string>('');
 
+  const [issues, setIssues] = useState<any>();
+  const [url, setUrl] = useState<any>();
+  const [size, setSize] = useState<any>();
+
   useEffect(() => {
     async function getUserData() {
       try {
@@ -33,12 +37,20 @@ const Home: React.FC = () => {
         setDataRepositorio2(repos.data)
         setFollowers(response.data.followers)
         setFollowings(response.data.following)
+
+        for (var i = 0; i < repos.data.length; i++) {
+          if (repos.data[i].full_name === searchValue) {
+            setFork(repos.data[i].forks)
+            setIssues(repos.data[i].open_issues)
+            setUrl(repos.data[i].html_url)
+            setSize(repos.data[i].size)
+          }
+        }
       }
       catch (err) {
         console.log(err);
       }
     }
-
     getUserData();
   }, [username]);
 
@@ -52,8 +64,11 @@ const Home: React.FC = () => {
     const repos = await client.get(`/${username}/repos`);
 
     for (var i = 0; i < repos.data.length; i++) {
-      if (repos.data[i].full_name === e && repos.data[i].name === split2) {
+      if (repos.data[i].full_name === e) {
         setFork(repos.data[i].forks)
+        setIssues(repos.data[i].open_issues)
+        setUrl(repos.data[i].html_url)
+        setSize(repos.data[i].size)
       }
     }
   }
@@ -106,12 +121,24 @@ const Home: React.FC = () => {
             <h1>{followings}</h1>
             <h2>Seguindo</h2>
           </NumberContainer>
-
+          <NumberContainer>
+            <h1>{size}</h1>
+            <h2>Size</h2>
+          </NumberContainer>
           <NumberContainer>
             <h1>{fork}</h1>
             <h2>Fork</h2>
           </NumberContainer>
 
+          <NumberContainer>
+            <h1>{issues}</h1>
+            <h2>Issues</h2>
+          </NumberContainer>
+
+          <NumberContainer>
+            <h1>{url}</h1>
+            <h2>Url</h2>
+          </NumberContainer>
         </Lista>
       </Left>
 
