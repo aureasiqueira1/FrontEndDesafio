@@ -17,6 +17,7 @@ A seguir você poderá ver como é a aparência da aplicação quando rodando na
 <img src="https://user-images.githubusercontent.com/89463362/163295743-1c5b727f-d43f-44b8-a70b-edb84ab44c9a.png" height="350px">
 <br/>
 
+* Link do figma: (https://www.figma.com/file/U8LyBdlRVaHUrJ0teUltFy/FrontEnd-Pesquise-reposit%C3%B3rios-do-Github?node-id=0%3A1)
 ---
 
 ## 🚀 Como executar
