@@ -24,13 +24,10 @@ A seguir você poderá ver como é a aparência da aplicação quando rodando na
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-<br/>
-<br/>
-para poder ter o projeto em sua máquina, para que possa executar e fazer alterações, instale o [Git](https://git-scm.com/)
-<br/>
-recomendamos o [Visual Studio Code](https://code.visualstudio.com/) como editor de texto, ele será útil para obter as dependências e executar o app.
-<br/>
-baixe o [npm](https://www.npmjs.com/package/npm) ou [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
+
+* [Git](https://git-scm.com/)
+* [Visual Studio Code](https://code.visualstudio.com/) como editor de texto, ele será útil para obter as dependências e executar o app.
+* [npm](https://www.npmjs.com/package/npm) ou [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
 
 ### Clonando repositório
 
