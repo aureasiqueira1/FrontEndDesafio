@@ -20,7 +20,12 @@ export const Button = styled.div`
  margin-left: 35%;
  float: right;
  margin-top: -90px;
- height: 70px;      
+ height: 70px; 
+ cursor: pointer;     
+
+ :hover{
+     background-color: #a2a2a2;
+ }
 }`;
 
 export const Imagem = styled.div`
