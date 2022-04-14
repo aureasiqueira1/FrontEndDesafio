@@ -2,7 +2,7 @@
 
 - [Sobre](#-sobre)
 - [Como executar](#-como-executar)
-
+- [Imagens do aplicativo](#-imagens-do-aplicativo)
 
 ## 💻 Sobre
 
@@ -37,9 +37,7 @@ $ git clone https://github.com/aureasiqueira1/FrontEndDesafio.git
 ```
 
 ### Instalando dependências da aplicação
-Recomendamos utilizar o VisualStudio Code, ao abrir o código dentro dele, baixe as 
-extensões do flutter e dart que ele oferece, depois o próprio software oferece
-a opção de baixar os pacotes necessários, se ele não oferecer, utilize o seguinte comando no terminal:
+Recomendamos utilizar o VisualStudio Code, ao abrir o código dentro dele, baixe as dependências pelo terminal:
 ```
 npm install ou yarn install - Instala todas as dependências necessárias.
 ```
