@@ -1,0 +1,21 @@
+.MuiInput-underline:before {
+ border-bottom: none !important;
+}
+
+.MuiInput-underline:after {
+ border-bottom: none !important;
+}
+
+.MuiInput-underline:hover:not(.Mui-disabled):before{
+ border-bottom: none;
+}
+
+.search .MuiInputBase-input{
+ font-size: 24px;
+ margin-top: 0px;
+}
+
+.search .MuiSvgIcon-root{
+ width: 36px;
+ height: 53px;
+}
