@@ -60,6 +60,7 @@ const Home: React.FC = () => {
     setSplit2(sp)
     setShow(true)
 
+    sp ? (<></>) : (alert('Digite o nome de um repositório!'));
     const repos = await client.get(`/${username}/repos`);
 
     for (var i = 0; i < repos.data.length; i++) {
