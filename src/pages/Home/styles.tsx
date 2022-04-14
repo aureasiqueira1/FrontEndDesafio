@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
 export const Title = styled.div`
- font-size: 48px;
- position: fixed;
+ font-size: 36px;
  font-family: Montserrat,sans-serif;
- top: 10%;
- left: 7%;
- -ms-transform: translate(-50%,-50%);
+ margin-top: 10%;
+ margin-left: 200px;
 `;
 
 export const Button = styled.div`
@@ -20,20 +18,23 @@ export const Button = styled.div`
  align-items: center;
  display: flex;
  margin-left: 35%;
+ float: right;
+ margin-top: -90px;
+ height: 70px;      
 }`;
 
 export const Imagem = styled.div`
- margin-left: 90%;
+ margin-left: 10%;
  margin-top: 200px;
 }`;
 
 export const Lista = styled.div`
- border: 2px solid black;
  border-radius: 20px;
- width: 500px;
- height: 500px;
- margin-top: 20px;
- margin-left: 15%;
+ width: 800px;
+ height: 450px;
+ margin-top: 150px;
+ margin-left: 150px;
+ background-color: #969696;
 `;
 
 export const Container = styled.div`
@@ -141,6 +142,14 @@ export const HeaderSearchButton = styled.button`
     }
 `;
 
+export const Subtitle = styled.div`
+  font-size: 16px;
+  text-align: center;
+  color: #F8F9FA;
+  margin: 0;
+  font-weight: 100px;
+`;
+
 export const NumberContainer = styled.div`
     width: 100px;
     height: 50px;
@@ -148,19 +157,24 @@ export const NumberContainer = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    display: inline-block;
+    margin-top: 80px;
+    margin-left: 10px;
+    
     h1 {
         font-size: 20px;
         text-align: center;
-        color: #444;
+        color: #F8F9FA;
         margin: 0;
+        font-weight: 500px;
     }
 
     h2 {
-        font-size: 12px;
+        font-size: 16px;
         text-align: center;
-        color: #777;
+        color: #F8F9FA;
         margin: 0;
+        font-weight: 100px;
     }
 
     &:hover {

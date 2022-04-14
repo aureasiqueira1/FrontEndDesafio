@@ -10,7 +10,7 @@ const UserDetails = (props: any) => {
         <Container>
             <Name>{props?.name}</Name>
             <Username>{props?.login}</Username>
-            <Description>{props?.bio}</Description>
+            <Description>{props?.repositorio}</Description>
         </Container>
     );
 }

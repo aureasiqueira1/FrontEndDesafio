@@ -14,29 +14,30 @@ export const Name = styled.h1`
     text-align: center;
     font-size: 20px;
     font-weight: 700;
-    color: #444;
+    color: #F8F9FA;
     margin: 0;
-`
+    font-weight: 500px;
+    margin-top: 20px;
+`;
 
-export const Username = styled.h2`
+export const Username = styled.div`
     width: 100%;
+    font-weight: 400;
     text-align: center;
-    font-size: 13px;
-    font-weight: 500;
-    color: #777;
+    font-size: 16px;
+    color: #F8F9FA;
     margin: 0;
     padding: 5px;
 `
 
 export const Description = styled.p`
-    width: 300px;
-    height: 30px; 
-    margin: 10px 0;
-    font-size: 12px;
-    text-align: justify;
-    color: #777;
-    line-height: 1.3;
-    overflow: hidden;
+   width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #F8F9FA;
+    text-shadow: black 0em 0.2em 0.4em;
+    margin: 0;
 
     @media (max-width: 430px) {
         width: 250px;

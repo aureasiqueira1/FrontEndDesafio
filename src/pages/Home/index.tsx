@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchIcon from "@material-ui/icons/Search";
 import { TextField, IconButton } from '@material-ui/core';
 import iconGit from '../../assets/images/iconGit.png'
 import UserPicture from '../../components/userPicture';
 import UserDetails from '../../components/userDetails';
 import client from '../../services/client';
-import { Button, Container, Imagem, Left, Lista, Right, Title, NumberContainer } from './styles';
+import { Button, Container, Imagem, Left, Lista, Right, Title, NumberContainer, Subtitle } from './styles';
 import './styles.css';
 
 const Home: React.FC = () => {
@@ -14,16 +14,15 @@ const Home: React.FC = () => {
   const [login, setLogin] = useState<string>('')
   const [avatar, setAvatar] = useState<string>('')
   const [name, setName] = useState<string>('')
-  const [bio, setBio] = useState<string>('')
+  const [repositorio, setRepositorio] = useState<string>('')
   const [followers, setFollowers] = useState<string>('')
   const [followings, setFollowings] = useState<string>('')
-  const [dataRepositorio2, setDataRepositorio2] = useState([]);
   const [split2, setSplit2] = useState<string>('');
   const [fork, setFork] = useState<string>('');
-
   const [issues, setIssues] = useState<any>();
-  const [url, setUrl] = useState<any>();
+  const [language, setLanguage] = useState<any>();
   const [size, setSize] = useState<any>();
+  const [show, setShow] = useState<boolean>(false);
 
   useEffect(() => {
     async function getUserData() {
@@ -33,8 +32,7 @@ const Home: React.FC = () => {
         setLogin(response.data.login)
         setAvatar(response.data.avatar_url)
         setName(response.data.name)
-        setBio(response.data.bio)
-        setDataRepositorio2(repos.data)
+        setRepositorio(repos.data)
         setFollowers(response.data.followers)
         setFollowings(response.data.following)
 
@@ -42,7 +40,7 @@ const Home: React.FC = () => {
           if (repos.data[i].full_name === searchValue) {
             setFork(repos.data[i].forks)
             setIssues(repos.data[i].open_issues)
-            setUrl(repos.data[i].html_url)
+            setLanguage(repos.data[i].language)
             setSize(repos.data[i].size)
           }
         }
@@ -60,6 +58,7 @@ const Home: React.FC = () => {
     setUsername(split[0])
     const sp = split[1] // nome do repositório
     setSplit2(sp)
+    setShow(true)
 
     const repos = await client.get(`/${username}/repos`);
 
@@ -67,7 +66,7 @@ const Home: React.FC = () => {
       if (repos.data[i].full_name === e) {
         setFork(repos.data[i].forks)
         setIssues(repos.data[i].open_issues)
-        setUrl(repos.data[i].html_url)
+        setLanguage(repos.data[i].language)
         setSize(repos.data[i].size)
       }
     }
@@ -76,18 +75,30 @@ const Home: React.FC = () => {
   return (
     <Container>
       <Left>
+        <Imagem>
+          <img src={iconGit} />
+        </Imagem>
+      </Left>
+
+      <Right>
         <Title>Pesquise repositórios</Title>
         <TextField
-          placeholder="Digite o nome do repositório"
+          className="search"
+          placeholder="Digite o usuário/nome do repositório"
           style={{
-            backgroundColor: '#E7E7E7',
-            color: '#A1A1A1',
-            fontSize: '24px',
-            marginTop: '300px',
-            marginLeft: '90px',
+            backgroundColor: 'rgb(231, 231, 231)',
+            color: 'rgb(161, 161, 161)',
+            fontSize: '30px !important',
+            marginTop: '30px',
+            marginLeft: '150px',
             borderRadius: '20px',
-            width: '450px',
+            width: '510px',
             marginBottom: '20px',
+            height: '70px',
+            float: 'left',
+            paddingLeft: '10px',
+            marginRight: '20px',
+            border: '1px solid #535353'
           }}
           value={searchValue}
           onChange={e => setSearchValue(e.target.value)}
@@ -100,52 +111,53 @@ const Home: React.FC = () => {
           }}
         />
 
-        <Button onClick={() => handleClick(searchValue)}>
+        <Button onClick={() => {
+          handleClick(searchValue)
+        }}>
           Pesquisar
         </Button>
 
-        <Lista>
-          <UserPicture url={avatar} alternativeText={login} />
-          <UserDetails name={name} login={login} bio={bio} />
-          <NumberContainer>
-            <h1>{dataRepositorio2.length}</h1>
-            <h2>Repositórios</h2>
-          </NumberContainer>
+        {show ? (
+          <Lista>
+            <UserPicture url={avatar} alternativeText={login} />
+            <UserDetails name={name} login={login} repositorio={split2} />
 
-          <NumberContainer>
-            <h1>{followers}</h1>
-            <h2>Seguidores</h2>
-          </NumberContainer>
+            <NumberContainer>
+              <Subtitle>Repository</Subtitle>
+              <h1>{repositorio.length}</h1>
+            </NumberContainer>
 
-          <NumberContainer>
-            <h1>{followings}</h1>
-            <h2>Seguindo</h2>
-          </NumberContainer>
-          <NumberContainer>
-            <h1>{size}</h1>
-            <h2>Size</h2>
-          </NumberContainer>
-          <NumberContainer>
-            <h1>{fork}</h1>
-            <h2>Fork</h2>
-          </NumberContainer>
+            <NumberContainer>
+              <Subtitle>Followers</Subtitle>
+              <h1>{followers}</h1>
+            </NumberContainer>
 
-          <NumberContainer>
-            <h1>{issues}</h1>
-            <h2>Issues</h2>
-          </NumberContainer>
+            <NumberContainer>
+              <Subtitle>Followings</Subtitle>
+              <h1>{followings}</h1>
+            </NumberContainer>
 
-          <NumberContainer>
-            <h1>{url}</h1>
-            <h2>Url</h2>
-          </NumberContainer>
-        </Lista>
-      </Left>
+            <NumberContainer>
+              <Subtitle>Fork</Subtitle>
+              <h1>{fork}</h1>
+            </NumberContainer>
 
-      <Right>
-        <Imagem>
-          <img src={iconGit} />
-        </Imagem>
+            <NumberContainer>
+              <Subtitle>Issues</Subtitle>
+              <h1>{issues}</h1>
+            </NumberContainer>
+
+            <NumberContainer>
+              <Subtitle>Size</Subtitle>
+              <h1>{size}</h1>
+            </NumberContainer>
+
+            <NumberContainer>
+              <Subtitle>Language</Subtitle>
+              <h1>{language}</h1>
+            </NumberContainer>
+          </Lista>
+        ) : (<></>)}
       </Right>
     </Container>
   )
